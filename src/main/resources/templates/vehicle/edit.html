@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <title>Edycja pojazdu</title>
+</head>
+<body>
+<main role="main" layout:fragment="container" class="container">
+<form method="post" th:action="@{/vehicle/save}" th:object="${vehicle}">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Pole</th>
+            <th scope="col">Wartość</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">ID</th>
+            <td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Marka</th>
+            <td><input type="text" th:field="*{brand}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Model</th>
+            <td><input type="text" th:field="*{model}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">VIN</th>
+            <td><input type="text" th:field="*{vin}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Rok prod.</th>
+            <td><input type="text" th:field="*{productionDate}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Pojemność</th>
+            <td><input type="number" th:field="*{capacity}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Moc</th>
+            <td><input type="number" th:field="*{horsePower}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Rodzaj paliwa</th>
+            <td><input type="text" th:field="*{fuelType}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Przebieg</th>
+            <td><input type="number" th:field="*{mileage}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Skrzynia biegów</th>
+            <td><input type="text" th:field="*{gearType}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Opis</th>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Status</th>
+            <td><input type="text" th:field="*{status}" readonly="readonly"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="OK"/>
+</form>
+</main>
+</body>
+</html>
