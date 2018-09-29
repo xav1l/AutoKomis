@@ -1,12 +1,15 @@
 package pl.pawelsuska.AutoKomis.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.pawelsuska.AutoKomis.dto.OperationDto;
 
 import javax.persistence.*;
 
 
 @Setter
+@NoArgsConstructor
 @Getter
 @Entity
 @Table(name = "vehicles")
@@ -35,11 +38,23 @@ public class Vehicle {
     @Column
     private Integer testDriveCounter = 0;
     @Column
-    private Integer productionDate;
-    @Column
     private Integer status = 0;
+    @Column
+    private Integer productionDate;
 
-
+    public Vehicle(OperationDto operationDto) {
+        this.id = operationDto.getVehicleId();
+        this.vin = operationDto.getVehicleVin();
+        this.brand = operationDto.getVehicleBrand();
+        this.model = operationDto.getVehicleModel();
+        this.capacity = operationDto.getVehicleCapacity();
+        this.horsePower = operationDto.getVehicleHorsePower();
+        this.fuelType = operationDto.getVehicleFuelType();
+        this.mileage = operationDto.getVehicleMileage();
+        this.gearType = operationDto.getVehicleGearType();
+        this.description = operationDto.getVehicleDescription();
+        this.productionDate = operationDto.getVehicleProductionDate();
+    }
 
 
 }
